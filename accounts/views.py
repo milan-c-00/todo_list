@@ -17,7 +17,7 @@ def signup(request):
             except User.DoesNotExist:
                 user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
                 auth.login(request, user)
-                return redirect('home')
+                return redirect('all_tasks')
         else:
             return render(request, 'accounts/signup.html', {'error': 'Passwords do not match!'})
     else:
@@ -29,7 +29,7 @@ def login(request):
         user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
             auth.login(request, user)
-            return redirect('home')
+            return redirect('all_tasks')
         else:
             return render(request, 'accounts/login.html', {'error': 'Invalid credentials!'})
     else:

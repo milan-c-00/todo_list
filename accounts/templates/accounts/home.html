@@ -2,7 +2,11 @@
 
 {% block content %}
 
-    <h1 class="text-secondary text-center mt-5">Get started with your tasks!</h1>
-    
+    <h1 class="text-secondary text-center mt-5">Get started with managing your tasks!</h1>
+    <div class="container text-center">
+        <a href="{% url 'all_tasks' %}" class="btn btn-outline-secondary mt-5">
+            <h2 class="text-center">Tasks >></h2>
+        </a>
+    </div>
 
 {% endblock %}
